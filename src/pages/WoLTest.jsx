@@ -34,24 +34,25 @@ export default function WoLTest() {
     }
 
     return (
-        <form onSubmit={ handleSubmit(onSubmit) } className="flex flex-wrap items-center justify-center rounded-lg shadow-lg p-5 bg-gray-100 max-w-screen-md mx-auto">
-            <label className="block text-sm mr-3 font-medium text-gray-700">
+        <form onSubmit={ handleSubmit(onSubmit) } className="flex flex-wrap items-center justify-center gap-3 rounded-lg shadow-lg p-5 bg-gray-100 max-w-screen-md mx-auto">
+            <label className="block text-sm font-medium text-gray-700">
             Mac address
             </label>
             <input
                 { ...register('mac') }
                 type='text'
                 placeholder='xx:xx:xx:xx:xx:xx'
-                className='mt-1 border-[1px] focus:outline-0 focus:border-1 block shadow-sm p-2 sm:text-sm border-gray-200 rounded-md w-1/2'
+                className='min-w-[140px] border-[1px] focus:outline-0 focus:border-1 block shadow-sm p-2 sm:text-sm border-gray-200 rounded-md w-1/2'
             />
             <input
                 type="submit"
                 value="Send WoL Packet"
-                className="ml-5 cursor-pointer bg-red-500 px-4 py-2 sm:text-sm shadow-md hover:shadow-lg hover:bg-red-550 rounded-full text-gray-800"
+                className="cursor-pointer bg-red-500 px-4 py-2 sm:text-sm shadow-md hover:shadow-lg hover:bg-red-550 rounded-full text-gray-800"
             />
             <p
                 className={`
-                    mt-5
+                    w-full
+                    text-center
                     ${responseStatus !== 200 ? "text-red-500" : "text-green-500"}
                     sm:text-sm
                 `}
