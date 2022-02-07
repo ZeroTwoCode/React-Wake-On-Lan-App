@@ -1,12 +1,12 @@
 //Import components
-import WoLTest from './pages/WoLTest'
+import Home from './pages/home'
 
-function App() {
+const App = () => {
   return (
-    <div className="App p-5">
-      <WoLTest />
+    <div className="App">
+      <Home />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

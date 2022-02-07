@@ -1,15 +1,13 @@
 import env from 'react-dotenv'
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-export default function WoLTest() {
+const WoLManual = (props) => {
+
+    const { snackbarRef } = props
+
     const { register, handleSubmit, reset } = useForm()
-    const [ responseStatus, setResponseStatus ] = useState()
-    const [ responseMsg, setResponseMsg ] = useState()
 
     const onSubmit = data => {
-        //Clear response message before next request
-        setResponseMsg()
         //Request endpoint to wake device
         fetch(`${env.API_ENDPOINT}/wake`,
             {
@@ -17,19 +15,19 @@ export default function WoLTest() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify({
+                    mac: data.mac.trim()
+                })
             })
-        .then(res => {
-            //Reset field if successful
-            if(res.status == 200) reset({ mac: '' })
-            //Set response status state
-            setResponseStatus(res.status)
+        .then(async res => {
             //Parse JSON response
-            return res.json()
+            return {status: res.status, json: await res.json()}
         })
         .then(resJSON => {
-            //Set response message
-            setResponseMsg(resJSON)
+            //Reset field if successful
+            if(resJSON.status === 200) reset({ mac: '' })
+            //Trigger snackbar
+            snackbarRef.current.show({type: resJSON.status === 200 ? 'success' : 'error', message: resJSON.json})
         })
     }
 
@@ -49,14 +47,8 @@ export default function WoLTest() {
                 value="Send WoL Packet"
                 className="cursor-pointer bg-red-500 px-4 py-2 sm:text-sm shadow-md hover:shadow-lg hover:bg-red-550 rounded-full text-gray-800"
             />
-            <p
-                className={`
-                    w-full
-                    text-center
-                    ${responseStatus !== 200 ? "text-red-500" : "text-green-500"}
-                    sm:text-sm
-                `}
-            >{ responseMsg }</p>
         </form>
     )
 }
+
+export default WoLManual
