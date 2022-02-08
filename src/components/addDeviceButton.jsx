@@ -5,7 +5,7 @@ const AddDeviceButton = (props) => {
     const { addDeviceModalRef } = props
 
     return (
-        <button onClick={() => {addDeviceModalRef.current.show()}} className="rounded-full h-[3.5rem] w-[3.5rem] fixed right-5 bottom-5 bg-red-500 shadow-md">
+        <button onClick={() => {addDeviceModalRef.current.show()}} className="h-[3.5rem] w-[3.5rem] fixed right-5 bottom-5 btn-primary">
             <FontAwesomeIcon className="text-gray-800 text-2xl" icon={faPlus} />
         </button>
     )

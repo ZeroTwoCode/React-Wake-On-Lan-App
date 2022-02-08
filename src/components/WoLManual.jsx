@@ -33,19 +33,19 @@ const WoLManual = (props) => {
 
     return (
         <form onSubmit={ handleSubmit(onSubmit) } className="flex flex-wrap items-center justify-center gap-3 rounded-lg shadow-lg p-5 bg-gray-100 max-w-screen-md mx-auto">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="lbl-primary">
             Mac address
             </label>
             <input
                 { ...register('mac') }
                 type='text'
                 placeholder='xx:xx:xx:xx:xx:xx'
-                className='min-w-[140px] border-[1px] focus:outline-0 focus:border-1 block shadow-sm p-2 sm:text-sm border-gray-200 rounded-md w-1/2'
+                className='min-w-[140px] w-1/2 txt-primary'
             />
             <input
                 type="submit"
                 value="Send WoL Packet"
-                className="cursor-pointer bg-red-500 px-4 py-2 sm:text-sm shadow-md hover:shadow-lg hover:bg-red-550 rounded-full text-gray-800"
+                className="btn-primary"
             />
         </form>
     )
