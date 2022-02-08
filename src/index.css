@@ -4,7 +4,7 @@
 
 @layer components {
   .btn-primary {
-    @apply cursor-pointer bg-teal-400 px-4 py-2 sm:text-sm shadow-md rounded-full text-neutral-800 transition-all;
+    @apply cursor-pointer border-2 bg-teal-400 px-4 py-2 sm:text-sm shadow-md rounded-full text-neutral-800 transition-all;
   }
   .btn-primary:hover {
     @apply shadow-lg scale-105
