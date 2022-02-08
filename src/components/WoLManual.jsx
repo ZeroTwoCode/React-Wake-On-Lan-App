@@ -1,5 +1,7 @@
 import env from 'react-dotenv'
 import { useForm } from 'react-hook-form'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPowerOff } from '@fortawesome/free-solid-svg-icons'
 
 const WoLManual = (props) => {
 
@@ -42,11 +44,10 @@ const WoLManual = (props) => {
                 placeholder='xx:xx:xx:xx:xx:xx'
                 className='min-w-[140px] w-1/2 txt-primary'
             />
-            <input
-                type="submit"
-                value="Send WoL Packet"
-                className="btn-primary"
-            />
+            <button className="btn-primary relative cursor-pointer">
+                <input type="submit" value=" " className="absolute top-0 left-0 w-full h-full cursor-pointer" />
+                <FontAwesomeIcon className="text-md" icon={faPowerOff} />
+            </button>
         </form>
     )
 }

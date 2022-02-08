@@ -1,6 +1,6 @@
 import env from 'react-dotenv'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDesktop } from '@fortawesome/free-solid-svg-icons'
+import { faDesktop, faPowerOff } from '@fortawesome/free-solid-svg-icons'
 
 const Device = (props) => {
 
@@ -35,7 +35,9 @@ const Device = (props) => {
                 <p className="lbl-primary">{name}</p>
                 <p className="lbl-primary text-xs text-neutral-500">{mac}</p>
             </span>
-            <button onClick={wake} className="btn-primary ml-3">Wake</button>
+            <button onClick={wake} className="btn-primary ml-3">
+                <FontAwesomeIcon className="text-md" icon={faPowerOff} />
+            </button>
         </li>
     )
 }
